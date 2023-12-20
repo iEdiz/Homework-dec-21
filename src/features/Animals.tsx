@@ -22,8 +22,12 @@ export const animalSlice = createSlice({
         }
       });
     },
+
+    sortAnimal: (state, action) => {
+      state.sortBy = action.payload;
+    },
   },
 });
 
-export const { addAnimal, deleteAnimal, updateAnimal } = animalSlice.actions;
+export const { addAnimal, deleteAnimal, updateAnimal, sortAnimal } = animalSlice.actions;
 export default animalSlice.reducer;

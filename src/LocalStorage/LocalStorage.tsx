@@ -4,7 +4,7 @@ type Animal = {
   image: string;
 };
 
-const animals: Animal[] = [
+export const animals: Animal[] = [
   {
     id: 1,
     name: "Lion",
