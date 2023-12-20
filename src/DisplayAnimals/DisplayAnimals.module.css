@@ -1,0 +1,24 @@
+.displayUsers {
+    display: flex;
+    gap: 30px;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px 10px
+  }
+
+.buttonWrapper {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+.animalCard {
+    padding: 30px 25px;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+  }

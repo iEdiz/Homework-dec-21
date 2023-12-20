@@ -1,0 +1,14 @@
+.button {
+    padding: 17px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: rgb(188, 169, 142);
+    border: 1px solid rgb(110, 98, 82);
+    cursor: pointer;
+
+        &:active {
+            background-color: rgb(110, 98, 82);
+            border: 1px solid rgb(188, 169, 142);
+            color: rgb(206, 186, 158);
+        }
+}
