@@ -34,7 +34,7 @@ export const animalSlice = createSlice({
       });
     },
 
-    sortAnimal: (state, action: PayloadAction<Animal>) => {
+    sortAnimal: (state, action: PayloadAction<string>) => {
       state.sortBy = action.payload;
     },
   },
