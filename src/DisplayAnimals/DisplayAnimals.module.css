@@ -43,6 +43,9 @@
   border-radius: 8px;
   border: 1px solid rgb(164, 154, 140);
   background-color: rgb(242, 230, 216);
+  font-family: 'Kalam', cursive;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .animalName {
