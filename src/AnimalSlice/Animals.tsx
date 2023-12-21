@@ -1,9 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Animals } from "../LocalStorage/LocalStorage";
 
 type Animal = {
-  id: string;
+  id: number;
   name: string;
+  image: string;
 };
 
 type AnimalState = {
@@ -15,17 +16,17 @@ export const animalSlice = createSlice({
   name: "animals",
   initialState: { value: Animals } as AnimalState,
   reducers: {
-    addAnimal: (state, action) => {
+    addAnimal: (state, action: PayloadAction<Animal>) => {
       state.value.push(action.payload);
     },
 
-    deleteAnimal: (state, action) => {
+    deleteAnimal: (state, action: PayloadAction<Animal>) => {
       state.value = state.value.filter((animal) => {
         return animal.id !== action.payload.id;
       });
     },
 
-    updateAnimal: (state, action) => {
+    updateAnimal: (state, action: PayloadAction<Animal>) => {
       state.value.map((animal) => {
         if (animal.id === action.payload.id) {
           animal.name = action.payload.name;
@@ -33,7 +34,7 @@ export const animalSlice = createSlice({
       });
     },
 
-    sortAnimal: (state, action) => {
+    sortAnimal: (state, action: PayloadAction<Animal>) => {
       state.sortBy = action.payload;
     },
   },

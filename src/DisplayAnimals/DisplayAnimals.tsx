@@ -27,7 +27,7 @@ export const DisplayAnimals = () => {
     }
   });
 
-  const handleSortChange = (e) => {
+  const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newSortOrder = e.target.value;
     setSortOrder(newSortOrder);
 
@@ -39,11 +39,7 @@ export const DisplayAnimals = () => {
     <>
       <div className={style.selectWrapper}>
         <span className={style.selectHeader}>Sort by:</span>
-        <select
-          value={sortOrder}
-          onChange={handleSortChange}
-          className={style.select}
-        >
+        <select value={sortOrder} onChange={handleSortChange} className={style.select}>
           <option value="default">Default</option>
           <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
@@ -73,18 +69,11 @@ export const DisplayAnimals = () => {
                   text="Update Animal"
                   onClick={() => {
                     setNewAnimalNames("");
-                    const validationResults = AnimalName.safeParse([
-                      animalNewName,
-                    ]);
+                    const validationResults = AnimalName.safeParse([animalNewName]);
                     if (validationResults.success) {
-                      dispatch(
-                        updateAnimal({ id: animal.id, name: animalNewName }),
-                      );
+                      dispatch(updateAnimal({ id: animal.id, name: animalNewName }));
                     } else {
-                      console.error(
-                        "Validation error:",
-                        validationResults.error,
-                      );
+                      console.error("Validation error:", validationResults.error);
                     }
                   }}
                 />
