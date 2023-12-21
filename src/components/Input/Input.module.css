@@ -4,6 +4,8 @@
     border: 1px solid rgb(110, 98, 82);
     outline: none;
     background-color: rgb(242, 230, 216);
+    font-family: 'Kalam', cursive;
+    font-size: 15px;
 
         &:focus {
             box-shadow: 0px 0px 5px 1px rgb(110, 98, 82);

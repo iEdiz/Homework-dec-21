@@ -27,7 +27,8 @@ export const AddAnimals = () => {
     if (validationResults.success) {
       dispatch(addAnimal(newAnimal));
 
-      const animals = JSON.parse(localStorage.getItem("animals") as string) || [];
+      const animals =
+        JSON.parse(localStorage.getItem("animals") as string) || [];
       const newAnimals = [...animals, newAnimal];
       localStorage.setItem("animals", JSON.stringify(newAnimals));
     } else {

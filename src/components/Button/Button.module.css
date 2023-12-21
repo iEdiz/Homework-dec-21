@@ -1,10 +1,11 @@
 .button {
-    padding: 17px 20px;
+    padding: 12px 20px;
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 20px;
     background-color: rgb(188, 169, 142);
     border: 1px solid rgb(110, 98, 82);
     cursor: pointer;
+    font-family: 'Kalam', cursive;
 
         &:active {
             background-color: rgb(110, 98, 82);
