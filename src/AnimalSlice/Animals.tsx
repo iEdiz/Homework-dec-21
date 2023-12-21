@@ -29,5 +29,6 @@ export const animalSlice = createSlice({
   },
 });
 
-export const { addAnimal, deleteAnimal, updateAnimal, sortAnimal } = animalSlice.actions;
+export const { addAnimal, deleteAnimal, updateAnimal, sortAnimal } =
+  animalSlice.actions;
 export default animalSlice.reducer;

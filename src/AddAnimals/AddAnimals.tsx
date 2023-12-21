@@ -2,7 +2,8 @@ import { Input } from "../components/Input/Input";
 import { Button } from "../components/Button/Button";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addAnimal } from "../features/Animals";
+import { addAnimal } from "../AnimalSlice/Animals";
+import { AnimalMap } from "../Validation/Validation";
 
 export const AddAnimals = () => {
   const [name, setName] = useState("");
@@ -10,6 +11,27 @@ export const AddAnimals = () => {
 
   const dispatch = useDispatch();
   const animalList = useSelector((state) => state.animals.value);
+
+  const handleAddAnimal = () => {
+    const newId = animalList.length > 0 ? animalList[animalList.length - 1].id + 1 : 1;
+    const newAnimal = {
+      id: newId,
+      name,
+      image,
+    };
+
+    const validationResults = AnimalMap.safeParse([newAnimal]);
+
+    if (validationResults.success) {
+      dispatch(addAnimal(newAnimal));
+
+      const animals = JSON.parse(localStorage.getItem("animals")) || [];
+      const newAnimals = [...animals, newAnimal];
+      localStorage.setItem("animals", JSON.stringify(newAnimals));
+    } else {
+      console.error("Validation error:", validationResults.error);
+    }
+  };
 
   return (
     <div>
@@ -29,18 +51,7 @@ export const AddAnimals = () => {
           setImage(e.target.value);
         }}
       />
-      <Button
-        text="Add animal"
-        onClick={() => {
-          dispatch(
-            addAnimal({
-              id: animalList[animalList.length - 1].id + 1,
-              name,
-              image,
-            }),
-          );
-        }}
-      />
+      <Button text="Add animal" onClick={handleAddAnimal} />
     </div>
   );
 };

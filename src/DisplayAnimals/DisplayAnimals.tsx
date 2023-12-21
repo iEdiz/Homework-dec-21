@@ -1,7 +1,7 @@
 import { Input } from "../components/Input/Input";
 import { Button } from "../components/Button/Button";
 import { Image } from "../components/Image/Image";
-import { deleteAnimal, updateAnimal, sortAnimal } from "../features/Animals";
+import { deleteAnimal, updateAnimal, sortAnimal } from "../AnimalSlice/Animals";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import style from "./DisplayAnimals.module.css";
@@ -10,6 +10,7 @@ export const DisplayAnimals = () => {
   const dispatch = useDispatch();
   const animalList = useSelector((state) => state.animals.value);
   const [sortOrder, setSortOrder] = useState("default");
+  const [newAnimalName, setNewAnimalName] = useState("");
 
   const sortedAnimalArray = [...animalList];
 
@@ -25,11 +26,10 @@ export const DisplayAnimals = () => {
     const newSortOrder = e.target.value;
     setSortOrder(newSortOrder);
 
-    const newSortCriteria = newSortOrder === "asc" ? "name" : "name_desc";
-    dispatch(sortAnimal(newSortCriteria));
+    const sortingWay = newSortOrder === "asc" ? "name" : "name_desc";
+    dispatch(sortAnimal(sortingWay));
   };
 
-  const [newAnimalName, setNewAnimalName] = useState("");
   return (
     <div className={style.displayUsers}>
       Sort by:
