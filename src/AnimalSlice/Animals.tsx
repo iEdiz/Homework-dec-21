@@ -1,9 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Animals } from "../LocalStorage/LocalStorage";
 
+type Animal = {
+  id: string;
+  name: string;
+};
+
+type AnimalState = {
+  value: Animal[];
+  sortBy?: string;
+};
+
 export const animalSlice = createSlice({
   name: "animals",
-  initialState: { value: Animals },
+  initialState: { value: Animals } as AnimalState,
   reducers: {
     addAnimal: (state, action) => {
       state.value.push(action.payload);
@@ -29,6 +39,5 @@ export const animalSlice = createSlice({
   },
 });
 
-export const { addAnimal, deleteAnimal, updateAnimal, sortAnimal } =
-  animalSlice.actions;
+export const { addAnimal, deleteAnimal, updateAnimal, sortAnimal } = animalSlice.actions;
 export default animalSlice.reducer;

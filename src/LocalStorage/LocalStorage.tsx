@@ -62,4 +62,6 @@ const string = JSON.stringify(animals);
 localStorage.setItem("animals", string);
 
 export const Animals =
-  localStorage.getItem("animals") !== null ? JSON.parse(localStorage.getItem("animals") as string) : "No animals added";
+  localStorage.getItem("animals") !== null
+    ? JSON.parse(localStorage.getItem("animals") as string)
+    : "No animals added";

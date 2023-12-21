@@ -16,6 +16,8 @@ export const AnimalMap = z.array(
   }),
 );
 
+export const AnimalName = z.array(z.string().min(3).max(42));
+
 const results = AnimalMap.safeParse(Animals);
 
 if (!results.success) {
